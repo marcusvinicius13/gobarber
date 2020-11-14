@@ -29,6 +29,7 @@
 ###                 (yarn add uuidv4)
 ###                 (yarn add typeorm)
 ###                 (yarn add pg : Drive do postgres)
+###                 (yarn add reflect-metadata)
 
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
