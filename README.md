@@ -27,6 +27,8 @@
 ###                 (yarn add @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.21.2 @typescript-eslint/parser@latest -D)
 ###                 (yarn add prettier eslint-config-prettier eslint-plugin-prettier -D)
 ###                 (yarn add uuidv4)
+###                 (yarn add typeorm)
+###                 (yarn add pg : Drive do postgres)
 
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
@@ -62,4 +64,11 @@ tsconfig.json
 
 ##  Single Responsability Principle
 ##  Dependency Invertion Principle
+
+
+#   OrmConfig : Arquivo de configuração da base de dados.
+
+
+    https://typeorm.io/#/
+
 
