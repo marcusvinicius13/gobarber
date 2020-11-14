@@ -71,4 +71,11 @@ tsconfig.json
 
     https://typeorm.io/#/
 
+#   Trabalhando com Migrations para versionamento da estrutura do banco de dados.
+
+    Criação : yarn typeorm migration:create -n CreateAppointments
+    Executar as Migrations : yarn typeorm migration:run
+    Mostrar as Migrations executadas : yarn typeorm migration:show
+    Desfazer a Migrations anterior : yarn typeorm migration:revert
+
 
