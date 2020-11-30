@@ -30,7 +30,9 @@
 ###                 (yarn add typeorm)
 ###                 (yarn add pg : Drive do postgres)
 ###                 (yarn add reflect-metadata)
-
+###                 (yarn add bcryptjs)
+###                 (yarn add -D @types/bcryptjs)
+###                 (yarn add jsonwebtoken)
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 
@@ -84,3 +86,4 @@ tsconfig.json
     Desfazer a Migrations anterior : yarn typeorm migration:revert
 
 
+#   Trabalhando com JWT (Json Web Token)
