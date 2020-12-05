@@ -33,6 +33,8 @@
 ###                 (yarn add bcryptjs)
 ###                 (yarn add -D @types/bcryptjs)
 ###                 (yarn add jsonwebtoken)
+###                 (yarn add multer) : Upload de imagens
+###                 (yarn add  @types/multer  -D)
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 
@@ -80,6 +82,7 @@ tsconfig.json
         yarn typeorm migration:create -n CreateAppointments
         yarn typeorm migration:create -n CreateUsers
         yarn typeorm migration:create -n AlterProviderFieldToProviderId
+        yarn typeorm migration:create -n AddAvatarFieldToUsers
 
     Executar as Migrations : yarn typeorm migration:run
     Mostrar as Migrations executadas : yarn typeorm migration:show
