@@ -21,7 +21,7 @@
 ### Express         (yarn add express)
 ### Typescript      (yarn add typescript -D)
 ### @Types/Express  (yarn add @types/express -D)
-### Ts-Node-Dev     (yarn add ts-node-dev -D)   (Executar o projeto em desenvolviumento)
+### Ts-Node-Dev     (yarn add ts-node-dev -D)   (Executar o projeto em desenvolvimento)
 ### Eslint          (yarn add eslint@6.8.0 -D)
 ###                 (yarn add eslint-import-resolver-typescript -D)
 ###                 (yarn add @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.21.2 @typescript-eslint/parser@latest -D)
@@ -35,6 +35,7 @@
 ###                 (yarn add jsonwebtoken)
 ###                 (yarn add multer) : Upload de imagens
 ###                 (yarn add  @types/multer  -D)
+###                 (yarn add express-async-errors)
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 
