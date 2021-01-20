@@ -1,5 +1,6 @@
 #   Criando um projeto do zero para aprender os fundamentos, não só no node como de como compilar ou transpilar o projeto com typescript.
 
+### Dar um reload no vscode ( ctrl + shit + p "escreve reload")
 
 ##  Criação do Projeto
 
@@ -36,6 +37,9 @@
 ###                 (yarn add multer) : Upload de imagens
 ###                 (yarn add  @types/multer  -D)
 ###                 (yarn add express-async-errors)
+###                 (yarn add cors)
+###                 (yarn add @types/cors -D)
+###                 (yarn tsyringe : Injeção de dependência)
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 
@@ -70,6 +74,7 @@ tsconfig.json
 
 ##  Single Responsability Principle
 ##  Dependency Invertion Principle
+##  Liskov Substitution Principle
 
 
 #   OrmConfig : Arquivo de configuração da base de dados.
@@ -91,3 +96,10 @@ tsconfig.json
 
 
 #   Trabalhando com JWT (Json Web Token)
+
+
+#   DDD     :   Domain Driven Design (METODOLOGIA)
+
+    yarn add tsconfig-paths -D
+
+#   TDD     :   Test Driven Development (METODOLOGIA)
