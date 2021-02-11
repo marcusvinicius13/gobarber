@@ -39,7 +39,10 @@
 ###                 (yarn add express-async-errors)
 ###                 (yarn add cors)
 ###                 (yarn add @types/cors -D)
-###                 (yarn tsyringe : Injeção de dependência)
+###                 (yarn add tsyringe : Injeção de dependência)
+###                 (yarn add jest -D : Testes Automatizados)
+###                 (yarn add ts-jest -D : Trabalhar com o typescript no jest)
+###                 (yarn add @types/jest -D )
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 
@@ -103,3 +106,6 @@ tsconfig.json
     yarn add tsconfig-paths -D
 
 #   TDD     :   Test Driven Development (METODOLOGIA)
+
+
+#   Trabbalhando com Testes Automatizados
