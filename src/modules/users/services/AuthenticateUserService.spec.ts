@@ -11,25 +11,29 @@ describe('AuthenticateUser', () => {
         const fakeUsersRepository = new FakeUsersRepository();
         const fakeHashProvider = new FakeHashProvider();
 
-        const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
-
-        const autheticateUser = new AuthenticateUserService(
-            fakeUsersRepository, fakeHashProvider
+        const createUserService = new CreateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
         );
 
-       const user = await createUserService.execute({
+        const autheticateUser = new AuthenticateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
+        );
+
+        const user = await createUserService.execute({
             name: 'Marcus Vinícius',
             email: 'marcusvinicius1_3@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
         const response = await autheticateUser.execute({
             email: 'marcusvinicius1_3@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
-        expect(response).toHaveProperty('token');
-        expect(response.user).toEqual(user);
+        await expect(response).toHaveProperty('token');
+        await expect(response.user).toEqual(user);
     });
 
     it('should be able to authenticate with non existing user', async () => {
@@ -37,12 +41,14 @@ describe('AuthenticateUser', () => {
         const fakeHashProvider = new FakeHashProvider();
 
         const autheticateUser = new AuthenticateUserService(
-            fakeUsersRepository, fakeHashProvider
+            fakeUsersRepository,
+            fakeHashProvider,
         );
 
-        expect(autheticateUser.execute({
+        await expect(
+            autheticateUser.execute({
                 email: 'marcusvinicius1_3@hotmail.com',
-                password: '123456'
+                password: '123456',
             }),
         ).rejects.toBeInstanceOf(AppError);
     });
@@ -51,10 +57,14 @@ describe('AuthenticateUser', () => {
         const fakeUsersRepository = new FakeUsersRepository();
         const fakeHashProvider = new FakeHashProvider();
 
-        const createUserService = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+        const createUserService = new CreateUserService(
+            fakeUsersRepository,
+            fakeHashProvider,
+        );
 
         const autheticateUser = new AuthenticateUserService(
-            fakeUsersRepository, fakeHashProvider
+            fakeUsersRepository,
+            fakeHashProvider,
         );
 
         await createUserService.execute({
@@ -63,11 +73,11 @@ describe('AuthenticateUser', () => {
             password: '123456',
         });
 
-        expect(autheticateUser.execute({
-            email: 'marcusvinicius1_3@hotmail.com',
-            password: 'wrong-password'
-        })).rejects.toBeInstanceOf(AppError);
-
+        await expect(
+            autheticateUser.execute({
+                email: 'marcusvinicius1_3@hotmail.com',
+                password: 'wrong-password',
+            }),
+        ).rejects.toBeInstanceOf(AppError);
     });
-
 });

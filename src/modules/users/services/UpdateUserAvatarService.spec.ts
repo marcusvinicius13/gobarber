@@ -11,13 +11,13 @@ describe('UpdateUserAvatar', () => {
 
         const updateUserAvatar = new UpdateUserAvatarService(
             fakeUsersRpository,
-            fakeStorageProvider
+            fakeStorageProvider,
         );
 
-        const user  = await fakeUsersRpository.create({
+        const user = await fakeUsersRpository.create({
             name: 'Marcus Vinícius',
             email: 'marcusvinicius1_3@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
         await updateUserAvatar.execute({
@@ -28,24 +28,22 @@ describe('UpdateUserAvatar', () => {
         expect(user.avatar).toBe('avatar.jpg');
     });
 
-
     it('should not be able to update avatar from non existing user', async () => {
         const fakeUsersRpository = new FakeUsersRepository();
         const fakeStorageProvider = new FakeStorageProvider();
 
         const updateUserAvatar = new UpdateUserAvatarService(
             fakeUsersRpository,
-            fakeStorageProvider
+            fakeStorageProvider,
         );
 
-        expect(
+        await expect(
             updateUserAvatar.execute({
                 user_id: 'non-exixting-user',
                 avatarFilename: 'avatar.jpg',
-            })
-        ).rejects.toBeInstanceOf(AppError)
+            }),
+        ).rejects.toBeInstanceOf(AppError);
     });
-
 
     it('should delete old avatar when updating new one', async () => {
         const fakeUsersRpository = new FakeUsersRepository();
@@ -55,13 +53,13 @@ describe('UpdateUserAvatar', () => {
 
         const updateUserAvatar = new UpdateUserAvatarService(
             fakeUsersRpository,
-            fakeStorageProvider
+            fakeStorageProvider,
         );
 
-        const user  = await fakeUsersRpository.create({
+        const user = await fakeUsersRpository.create({
             name: 'Marcus Vinícius',
             email: 'marcusvinicius1_3@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
         await updateUserAvatar.execute({
@@ -74,7 +72,8 @@ describe('UpdateUserAvatar', () => {
             avatarFilename: 'avatar2.jpg',
         });
 
-        expect(deleteFile).toHaveBeenCalledWith ('avatar.jpg');
-        expect(user.avatar).toBe('avatar2.jpg');
+        await expect(deleteFile).toHaveBeenCalledWith('avatar.jpg');
+
+        await expect(user.avatar).toBe('avatar2.jpg');
     });
 });

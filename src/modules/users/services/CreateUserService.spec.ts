@@ -12,16 +12,16 @@ describe('CreateUser', () => {
 
         const createAppointment = new CreateUserService(
             fakeUsersRepository,
-            fakeHashProvider
+            fakeHashProvider,
         );
 
         const user = await createAppointment.execute({
             name: 'Marcus Vinícius',
             email: 'marcusvinicius1_3@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
-        expect(user).toHaveProperty('id');
+        await expect(user).toHaveProperty('id');
     });
 
     it('should be able to create a new user with same email from another', async () => {
@@ -30,24 +30,21 @@ describe('CreateUser', () => {
 
         const createUser = new CreateUserService(
             fakeUsersRepository,
-            fakeHashProvider
+            fakeHashProvider,
         );
 
         await createUser.execute({
             name: 'Marcus Vinícius',
             email: 'marcus@hotmail.com',
-            password: '123456'
+            password: '123456',
         });
 
-        expect(
+        await expect(
             createUser.execute({
                 name: 'Marcus Vinícius',
                 email: 'marcus@hotmail.com',
-                password: '123456'
-            })
+                password: '123456',
+            }),
         ).rejects.toBeInstanceOf(AppError);
     });
-
-
-
 });
