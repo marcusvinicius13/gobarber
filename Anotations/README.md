@@ -43,6 +43,9 @@
 ###                 (yarn add jest -D : Testes Automatizados)
 ###                 (yarn add ts-jest -D : Trabalhar com o typescript no jest)
 ###                 (yarn add @types/jest -D )
+###                 (yarn add nodemailer)
+###                 (yarn add @types/nodemailer -D)
+###                 (yarn add handlebars)
 
 ##  Arquivos criados / Alterados, para configuração do projeto.
 

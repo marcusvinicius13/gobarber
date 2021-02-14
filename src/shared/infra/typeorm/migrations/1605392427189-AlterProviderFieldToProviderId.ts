@@ -1,7 +1,12 @@
-import {MigrationInterface, QueryRunner, TableColumn, TableForeignKey} from "typeorm";
+import {
+    MigrationInterface,
+    QueryRunner,
+    TableColumn,
+    TableForeignKey,
+} from 'typeorm';
 
-export default class AlterProviderFieldToProviderId1605392427189 implements MigrationInterface {
-
+export default class AlterProviderFieldToProviderId1605392427189
+    implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropColumn('appointments', 'provider');
 
@@ -11,7 +16,6 @@ export default class AlterProviderFieldToProviderId1605392427189 implements Migr
                 name: 'provider_id',
                 type: 'uuid',
                 isNullable: true,
-
             }),
         );
 
@@ -20,11 +24,10 @@ export default class AlterProviderFieldToProviderId1605392427189 implements Migr
             new TableForeignKey({
                 name: 'AppointmentProvider',
                 columnNames: ['provider_id'],
-                referencedColumnNames:['id'],
+                referencedColumnNames: ['id'],
                 referencedTableName: 'users',
                 onDelete: 'SET NULL',
                 onUpdate: 'CASCADE',
-
             }),
         );
     }
@@ -42,5 +45,4 @@ export default class AlterProviderFieldToProviderId1605392427189 implements Migr
             }),
         );
     }
-
 }
