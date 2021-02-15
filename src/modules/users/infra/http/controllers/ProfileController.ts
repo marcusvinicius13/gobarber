@@ -1,9 +1,32 @@
-/* import { Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import UpdateProfileController from '@modules/users/services/UpdateProfileController';
+import UpdateProfileService from '@modules/users/services/UpdateProfileService';
+import ShowProfileService from '@modules/users/services/ShowProfileService';
+
+interface IUser {
+    id: string;
+    name: string;
+    email: string;
+    password?: string;
+    avatar: string;
+    created_at: Date;
+    updated_at: Date;
+}
 
 export default class ProfileController {
+    public async show(request: Request, response: Response): Promise<Response> {
+        const user_id = request.user.id;
+
+        const showProfile = container.resolve(ShowProfileService);
+
+        const user: IUser = await showProfile.execute({ user_id });
+
+        delete user.password;
+
+        return response.json(user);
+    }
+
     public async update(
         request: Request,
         response: Response,
@@ -11,9 +34,9 @@ export default class ProfileController {
         const user_id = request.user.id;
         const { name, email, old_password, password } = request.body;
 
-        const updateProfile = container.resolve(UpdateProfileController);
+        const updateProfile = container.resolve(UpdateProfileService);
 
-        const user = await updateProfile.execute({
+        const user: IUser = await updateProfile.execute({
             user_id,
             name,
             email,
@@ -21,14 +44,8 @@ export default class ProfileController {
             password,
         });
 
-        const userWithoutPassword = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            created_at: user.created_at,
-            updated_at: user.updated_at,
-        };
+        delete user.password;
 
-        return response.json(userWithoutPassword);
+        return response.json(user);
     }
-} */
+}
