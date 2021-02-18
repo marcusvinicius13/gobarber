@@ -95,6 +95,7 @@ tsconfig.json
         yarn typeorm migration:create -n CreateUsers
         yarn typeorm migration:create -n AlterProviderFieldToProviderId
         yarn typeorm migration:create -n AddAvatarFieldToUsers
+        yarn typeorm migration:create -n AddUserIdToAppointments
 
     Executar as Migrations : yarn typeorm migration:run
     Mostrar as Migrations executadas : yarn typeorm migration:show

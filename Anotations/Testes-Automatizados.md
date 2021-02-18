@@ -41,6 +41,7 @@ Quando for criar testes precisa configurar o arquivo jest.config.ts
 ##  Executando o Teste
 
 -   yarn jest (roda todos os testes)
+-   yarn jest --clearCache (Roda o teste limpando o cache dos testes anteriores)
 -   yarn jest caminho do teste a ser executado Ex: (src/modules/users/services/SendForgotPassowordEmailService.spec.ts)
 
 
